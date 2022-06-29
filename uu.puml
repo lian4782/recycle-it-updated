@@ -1,0 +1,273 @@
+@startuml
+interface com.example.recycleapp.RecyclerViewInterface {
+~ void onItemClick(int)
+}
+class com.example.recycleapp.Chat {
+~ ImageView sendMessege
+~ EditText text
+~ ArrayAdapter<String> adapter
+~ ArrayList<String> list
+~ ArrayList<Message> listpost
+~ ArrayAdapter<Message> lpadapter
+~ ListView myListView
+~ DatabaseReference myref
+~ ProgressDialog p
+~ BottomNavigationView bottomNav
+~ Message message
+~ FirebaseDatabase firebaseDatabase
+~ FirebaseAuth firebaseAuth
+# void onCreate(Bundle)
++ void createMSG()
++ boolean isValidate()
+}
+class com.example.recycleapp.Message {
+- String text
+- String FromUser
++ String getText()
++ void setText(String)
++ String getFromUser()
++ void setFromUser(String)
++ String toString()
+}
+class com.example.recycleapp.RecyclerViewAdapter1 {
+- RecyclerViewInterface recyclerViewInterface
+~ Context context
+~ ArrayList<recycleItem> ItemsList
+~ StorageReference storageReference
++ RecyclerViewAdapter1.MyViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(RecyclerViewAdapter1.MyViewHolder,int)
++ int getItemCount()
+}
+class com.example.recycleapp.RecyclerViewAdapter1.MyViewHolder {
+~ TextView name
+~ ImageView pic
+}
+class com.example.recycleapp.User {
+- String key
+- String name
+- String email
+- String password
+- recyclebin BlueBin
+- recyclebin OrangeBin
+- recyclebin PurpleBin
+- recyclebin Allbin
++ String getKey()
++ String getName()
++ void setName(String)
++ String getEmail()
++ void setEmail(String)
++ String getPassword()
++ void setPassword(String)
++ recyclebin getAllbin()
++ recyclebin getBlueBin()
++ recyclebin getOrangeBin()
++ recyclebin getPurpleBin()
++ void updateBlueBin(int)
++ void updateOrangeBin(int)
++ void updatePurpleBin(int)
+}
+class com.example.recycleapp.profile {
+~ SharedPreferences sp
+~ BottomNavigationView bottomNav
+~ FirebaseAuth firebaseAuth
+~ DatabaseReference databaseReference
+~ FirebaseDatabase firebaseDatabase
+~ User u
+~ recyclebin bluebin
+~ TextView BlueBinCnt
+~ TextView BlueBinPoints
+# void onCreate(Bundle)
++ boolean onCreateOptionsMenu(Menu)
++ boolean onOptionsItemSelected(MenuItem)
+}
+class com.example.recycleapp.AllRatingFragment {
+~ RecyclerView recyclerView
+~ UserForRating u
+~ ArrayList<UserForRating> UsersList
+~ DatabaseReference databaseReference
+~ FirebaseDatabase firebaseDatabase
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+}
+class com.example.recycleapp.LoginAndSignupAdapter {
+- Context context
+~ int totalTabs
++ int getCount()
++ Fragment getItem(int)
+}
+class com.example.recycleapp.PurpleBinRatingFragment {
+~ RecyclerView recyclerView
+~ UserForRating u
+~ ArrayList<UserForRating> UsersList
+~ DatabaseReference databaseReference
+~ FirebaseDatabase firebaseDatabase
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+}
+class com.example.recycleapp.RecyclePage {
+~ boolean update
+~ BottomNavigationView bottomNav
+~ ArrayList<recycleItem> ItemsList
+~ RecyclerView recyclerView
+~ DatabaseReference databaseReference
+~ recycleItem r
+~ FirebaseDatabase firebaseDatabase
+# void onCreate(Bundle)
++ void view_list_of_items()
++ void onItemClick(int)
+}
+class com.example.recycleapp.BlueBinRatingFragment {
+~ RecyclerView recyclerView
+~ UserForRating u
+~ ArrayList<UserForRating> UsersList
+~ DatabaseReference databaseReference
+~ FirebaseDatabase firebaseDatabase
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+}
+class com.example.recycleapp.OrangeBinRatingFragment {
+~ RecyclerView recyclerView
+~ UserForRating u
+~ ArrayList<UserForRating> UsersList
+~ DatabaseReference databaseReference
+~ FirebaseDatabase firebaseDatabase
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+}
+class com.example.recycleapp.Rating {
+~ BottomNavigationView bottomNav
+~ TabLayout tablayout
+~ ViewPager viewpager
+# void onCreate(Bundle)
+}
+class com.example.recycleapp.RatingAdapter {
+- Context context
+~ int totalTabs
++ int getCount()
++ Fragment getItem(int)
+}
+class com.example.recycleapp.RecyclerViewRatingAdapter {
+~ Context context
+~ ArrayList<UserForRating> UsersList
++ RecyclerViewRatingAdapter.MyViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(RecyclerViewRatingAdapter.MyViewHolder,int)
++ int getItemCount()
+}
+class com.example.recycleapp.RecyclerViewRatingAdapter.MyViewHolder {
+~ TextView username
+}
+class com.example.recycleapp.MainActivity {
+# void onCreate(Bundle)
+}
+class com.example.recycleapp.LoginTabFragment {
+~ EditText LEmail
+~ EditText LPass
+~ Button login
+~ String password
+~ String mail
+~ float v
+~ SharedPreferences sp
+~ CheckBox rem
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void LogIn()
++ void onClick(View)
+}
+class com.example.recycleapp.UserForRating {
+- String name
+- recyclebin bin
++ String getName()
++ void setName(String)
++ recyclebin getBin()
++ void setBin(recyclebin)
+}
+class com.example.recycleapp.SignupTabFragment {
+~ EditText Name
+~ EditText Email
+~ EditText Pass
+~ EditText CPass
+~ Button signup
+~ float v
+~ FirebaseAuth firebaseAuth
+~ FirebaseDatabase firebaseDatabase
+~ ProgressDialog p
+~ DatabaseReference myref
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void createUser()
++ boolean isValidate()
++ void onClick(View)
+}
+class com.example.recycleapp.recycleItem {
+- String name
+- int value
+- String picname
+- String kindOfBin
++ String getName()
++ void setName(String)
++ int getValue()
++ void setValue(int)
++ String getPicname()
++ void setPicname(String)
++ String getKindOfBin()
++ void setKindOfBin(String)
+}
+class com.example.recycleapp.insert_recycleItem {
+- {static} int PICK_FROM_GALLERY
+~ EditText name
+~ EditText kind
+~ EditText value
+~ ImageView pic
+~ String picName
+~ Uri uri
+~ StorageReference mStorageRef
+~ FirebaseAuth firebaseAuth
+~ FirebaseDatabase firebaseDatabase
+~ Button b
+~ ProgressDialog p
+~ DatabaseReference myref
+~ ActivityResultLauncher<Intent> someActivityResultLauncher
+# void onCreate(Bundle)
++ void createRecycleItem()
+- void handlePermission()
++ boolean isValidate()
+- String getFileExtension(Uri)
++ void onClick(View)
++ void onActivityResult(int,int,Intent)
+}
+class com.example.recycleapp.recyclebin {
+- int points
+- int cnt
++ void updateBin(int)
++ int getCnt()
++ int getPoints()
+}
+class com.example.recycleapp.LoginActivity {
+~ TabLayout tablayout
+~ ViewPager viewpager
+~ float v
+# void onCreate(Bundle)
++ boolean isConnectedToInternet()
+}
+
+
+androidx.appcompat.app.AppCompatActivity <|-- com.example.recycleapp.Chat
+com.example.recycleapp.Adapter <|-- com.example.recycleapp.RecyclerViewAdapter1
+com.example.recycleapp.RecyclerViewAdapter1 +.. com.example.recycleapp.RecyclerViewAdapter1.MyViewHolder
+com.example.recycleapp.ViewHolder <|-- com.example.recycleapp.RecyclerViewAdapter1.MyViewHolder
+androidx.appcompat.app.AppCompatActivity <|-- com.example.recycleapp.profile
+androidx.fragment.app.Fragment <|-- com.example.recycleapp.AllRatingFragment
+androidx.fragment.app.FragmentPagerAdapter <|-- com.example.recycleapp.LoginAndSignupAdapter
+androidx.fragment.app.Fragment <|-- com.example.recycleapp.PurpleBinRatingFragment
+com.example.recycleapp.RecyclerViewInterface <|.. com.example.recycleapp.RecyclePage
+androidx.appcompat.app.AppCompatActivity <|-- com.example.recycleapp.RecyclePage
+androidx.fragment.app.Fragment <|-- com.example.recycleapp.BlueBinRatingFragment
+androidx.fragment.app.Fragment <|-- com.example.recycleapp.OrangeBinRatingFragment
+androidx.appcompat.app.AppCompatActivity <|-- com.example.recycleapp.Rating
+androidx.fragment.app.FragmentPagerAdapter <|-- com.example.recycleapp.RatingAdapter
+com.example.recycleapp.Adapter <|-- com.example.recycleapp.RecyclerViewRatingAdapter
+com.example.recycleapp.RecyclerViewRatingAdapter +.. com.example.recycleapp.RecyclerViewRatingAdapter.MyViewHolder
+com.example.recycleapp.ViewHolder <|-- com.example.recycleapp.RecyclerViewRatingAdapter.MyViewHolder
+androidx.appcompat.app.AppCompatActivity <|-- com.example.recycleapp.MainActivity
+com.example.recycleapp.OnClickListener <|.. com.example.recycleapp.LoginTabFragment
+androidx.fragment.app.Fragment <|-- com.example.recycleapp.LoginTabFragment
+com.example.recycleapp.OnClickListener <|.. com.example.recycleapp.SignupTabFragment
+androidx.fragment.app.Fragment <|-- com.example.recycleapp.SignupTabFragment
+com.example.recycleapp.OnClickListener <|.. com.example.recycleapp.insert_recycleItem
+androidx.appcompat.app.AppCompatActivity <|-- com.example.recycleapp.insert_recycleItem
+androidx.appcompat.app.AppCompatActivity <|-- com.example.recycleapp.LoginActivity
+@enduml

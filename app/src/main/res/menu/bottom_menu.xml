@@ -1,0 +1,29 @@
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_chat"
+        android:icon="@drawable/ic_chat"
+        android:title="@string/action_chat"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_ranks"
+        android:icon="@drawable/ic_gaff"
+        android:title="@string/action_ranks"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_trash"
+        android:icon="@drawable/ic_trash"
+        android:title="@string/action_trash"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_profile"
+        android:icon="@drawable/ic_profile"
+        android:title="@string/action_profile"
+        app:showAsAction="always"/>
+
+</menu>
